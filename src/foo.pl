@@ -3,7 +3,6 @@
 #
 # hello script
 #
-# Phase3 Development
 # Phase4 Development
 #
 print "Hello World\n";
