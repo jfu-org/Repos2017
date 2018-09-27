@@ -1,7 +1,11 @@
 ---
 name: Custom issue template
-about: Describe this issue template's purpose here.
+about: 汎用テンプレート
 
 ---
 
+** 内容
 
+** クローズ条件
+
+** クローズ期日
