@@ -14,6 +14,7 @@
 # ID   Date       Name         Description             TaskID
 # ---- ---------- -----------  ----------------------- ------------
 # N/A  2018/03/16 Fujino        New Creation
+# 0001 2018/09/10 Fujino        Change Error message
 #
 ######################################################################
 my $DEFLIST=$ARGV[0];
@@ -27,7 +28,7 @@ while(<INPUT>){
 	next if /^\s*$/||/^\s*#/;
 	my @cols = split(/\s*,\s*/);
 	if( $#cols < 1 ){
-		print STDERR "Columns Insufficient: $_\n";
+		print STDERR "ERROR : Columns Insufficient: $_\n";
 		exit(1);
 	}
 	$cols[0] =~ s/^\s*//;  # remove blank
