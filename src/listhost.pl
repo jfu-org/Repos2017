@@ -28,7 +28,11 @@ while(<INPUT>){
 	next if /^\s*$/||/^\s*#/;
 	my @cols = split(/\s*,\s*/);
 	if( $#cols < 1 ){
+
 		print STDERR "ERROR : Columns Insufficient: $_\n";
+		# New error message for buffix01
+		print STDERR "Check format.\n";
+
 		exit(1);
 	}
 	$cols[0] =~ s/^\s*//;  # remove blank
