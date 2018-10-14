@@ -5,13 +5,7 @@
 #
 # Phase4 Development
 # foo2.pl: This is a copy of foo.pl
-# Commit 2018101303
-# Commit 2018101306
-# Commit 2018101310
-# Commit 20181014B2-1
-# Commit 20181014X2-2
-# Commit 20181014Y2-4
-# Commit 20181014Z1-3 after squash to master
+# Work01-05 
 
 #
 print "Hello World\n";
