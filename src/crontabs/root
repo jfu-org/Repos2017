@@ -1,0 +1,80 @@
+# @(#)08	1.15.1.3  src/bos/usr/sbin/cron/root, cmdcntl, bos720 2/11/94 17:19:47
+# IBM_PROLOG_BEGIN_TAG 
+# This is an automatically generated prolog. 
+#  
+# bos720 src/bos/usr/sbin/cron/root 1.15.1.3 
+#  
+# Licensed Materials - Property of IBM 
+#  
+# COPYRIGHT International Business Machines Corp. 1989,1994 
+# All Rights Reserved 
+#  
+# US Government Users Restricted Rights - Use, duplication or 
+# disclosure restricted by GSA ADP Schedule Contract with IBM Corp. 
+#  
+# IBM_PROLOG_END_TAG 
+#
+# COMPONENT_NAME: (CMDCNTL) commands needed for basic system needs
+#
+# FUNCTIONS: 
+#
+# ORIGINS: 27
+#
+# (C) COPYRIGHT International Business Machines Corp. 1989,1994
+# All Rights Reserved
+# Licensed Materials - Property of IBM
+#
+# US Government Users Restricted Rights - Use, duplication or
+# disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+#
+#0 3 * * * /usr/sbin/skulker
+#45 2 * * 0 /usr/lib/spell/compress
+#45 23 * * * ulimit 5000; /usr/lib/smdemon.cleanu > /dev/null
+0 11 * * * /usr/bin/errclear -d S,O 30
+0 12 * * * /usr/bin/errclear -d H 90
+0,5,10,15,20,25,30,35,40,45,50,55 * * * * /usr/sbin/dumpctrl -k >/dev/null 2>/dev/null
+0 15 * * *  /usr/lib/ras/dumpcheck >/dev/null 2>&1
+55 23 * * * /var/perf/pm/bin/pmcfg  >/dev/null 2>&1     #Enable PM Data Collection
+## Log Control Utility ##
+# V5010 config
+50 2 * * 0 /usr/local/bin/storwize_conf_bkup.sh > /dev/null 2>&1
+# log archive
+58 23 * * * /usr/local/bin/list_chk.sh > /dev/null
+58 23 * * * /usr/local/bin/DB2_list_chk.sh > /dev/null 2>&1
+0 4 * * * /usr/bin/find /var/syslog -type f -mtime +91 -print | /usr/bin/xargs /usr/bin/rm -f 1>/dev/null 2>/dev/null
+55 23 * * * /usr/local/bin/loglooker > /dev/null 2>&1
+## end of Log Control Utility ##
+## collect nmon entry ##
+# data collect
+1 * * * * /usr/local/perf/bin/nmon_collecter > /dev/null 2>&1
+0,5,10,15,20,25,30,35,40,45,50,55 * * * * /usr/local/perf/bin/ps_collecter > /dev/null 2>&1
+* * * * * /usr/local/bin/vmstat-v_num.sh > /dev/null 2>&1
+* * * * * /usr/local/perf/bin/get_CURDEPTH > /dev/null 2>&1
+# data maintenance
+10 1 * * * /usr/local/perf/bin/perfdata_archiver > /dev/null 2>&1
+## end of collect nmon entry##
+#JP Weekly
+40 1 * * 0 /ATM/pkg/sh/weekly_batch.sh /ATM > /dev/null 2>&1
+#JP Daily
+05 0 * * * /usr/bin/su - atm -c /ATM/pkg/sh/figcounter.sh /ATM > /dev/null 2>&1
+12 0 * * * /ATM/pkg/sh/daily_batch.sh /ATM > /dev/null 2>&1
+14 0 * * * /usr/bin/su - wsuser -c /ATM/pkg/sh/pstlogclear.sh /ATM > /dev/null 2>&1
+15 0 * * * /ATM/pkg/sh/pstlogmv.sh /ATM > /dev/null 2>&1
+30 0 * * * /ATM/pkg/sh/cnter_match.sh /ATM > /dev/null 2>&1
+30 0 * * * /usr/bin/su - wsuser -c /ATM/pkg/sh/cnter_inq.sh /ATM ENET > /dev/null 2>&1
+40 0 * * * /apl/tools/daily_maxkeiro > /dev/null 2>&1
+40 0 * * * /apl/tools/hourly_maxkeiro > /dev/null 2>&1
+#ServiceCounterInq
+#X X * * * /usr/bin/su - wsuser -c /ATM/pkg/sh/svccnter_inq.sh /ATM XXXX T > /dev/null 2>&1
+#JP
+03 00 * * * /usr/bin/su - wsuser -c /ATM/pkg/sh/startaffl.sh /ATM 902E > /dev/null 2>&1
+04 00 * * * /usr/bin/su - wsuser -c /ATM/pkg/sh/cnfaffl.sh /ATM 902E > /dev/null 2>&1
+#### ITM Agent Log Maintenance ####
+5 2 * * * /usr/local/se/ITM/bin/maint_itm_agentlog.sh > /dev/null 2>&1
+## Login Data Daily Archive(2012C0338)
+16 5 * * *  /usr/local/bin/login_data_move.sh >/dev/null 2>&1
+### Performance Check
+* * * * * /usr/local/se/PERF/bin/perform_check.sh > /dev/null 2>&1
+1 * * * * /usr/local/se/PERF/bin/collect_shell_control.sh start > /dev/null 2>&1
+### Performance Data Maintenance
+0 2 * * * /usr/local/se/PERF/bin/collect_log_maint.sh > /dev/null 2>&1
