@@ -13,3 +13,5 @@
 
 print "New in Phase3.\n";
 print "Changed in Phase4\n";
+
+exit 0:
