@@ -3,3 +3,9 @@
 # Work05c01-03
 # Item-H comment
 
+
+print "Hello World!";
+
+
+exit 0;
+
