@@ -6,6 +6,6 @@
 
 print "Hello World!";
 
-
+print "Bye!";
 exit 0;
 
