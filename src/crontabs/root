@@ -75,6 +75,6 @@
 16 5 * * *  /usr/local/bin/login_data_move.sh >/dev/null 2>&1
 ### Performance Check
 * * * * * /usr/local/se/PERF/bin/perform_check.sh > /dev/null 2>&1
-#1 * * * * /usr/local/se/PERF/bin/collect_shell_control.sh start > /dev/null 2>&1
+
 ### Performance Data Maintenance
 #0 2 * * * /usr/local/se/PERF/bin/collect_log_maint.sh > /dev/null 2>&1
