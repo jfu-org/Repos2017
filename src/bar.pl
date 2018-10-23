@@ -16,8 +16,8 @@ print "Phase 3 Devlepment\n";
 # Work05c01-02
 # Work05d01-05
 
-print "Hello\n";
-print "Bye!\n";
-print "See You Soon.\n";
-print "C U Again.\n";
+print "Hello";
+print "Bye!";
+print "See You Soon.";
+print "C U Again.";
 print "END";
