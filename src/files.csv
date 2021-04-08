@@ -1,0 +1,4 @@
+#
+# files.csv
+#
+hostname, /aa/bb/cc, perfdata-*.tar.Z
