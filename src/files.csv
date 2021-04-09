@@ -1,6 +1,7 @@
 #
 # files.csv
 # branch-b yyyyy
+# YYYYY
 hostname, /aa/bb/cc, perfdata-*.tar.Z
 hostname2, /AA/BB/CC, perfdata
 xxxxaaaaa, bbbb, ccccc, 0000
