@@ -4,4 +4,4 @@
 hostname, /aa/bb/cc, perfdata-*.tar.Z
 hostname2, /AA/BB/CC, perfdata
 xxxxaaaaa, bbbb, ccccc
-AAAA,BBB,CCC
+AAAA,BBB,CCC, 00000
